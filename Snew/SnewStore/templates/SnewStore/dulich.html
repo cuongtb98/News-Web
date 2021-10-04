@@ -1,0 +1,74 @@
+{% extends 'SnewStore/main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="content-wrapper">
+    <div class="container">
+        <div class="col-sm-12">
+            <div class="card" data-aos="fade-up">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h1 class="font-weight-600 mb-4">
+                                TRAVEL
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8">
+                            {% for itm in page_obj %}
+
+                            <div class="row">
+                                <div class="col-sm-4 grid-margin">
+                                    <div class="rotate-img">
+                                        <img src={{itm.image}} alt="banner" class="img-fluid" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-8 grid-margin">
+                                    <a href="{% url 'post_detail' itm.id %}" class="font-weight-600 mb-2">
+                                        {{itm.title}}
+                                    </a>
+
+                                    <p class="fs-13 text-muted mb-0">
+                                        <span class="mr-2">Photo </span>10 Minutes ago
+                                    </p>
+                                    <p class="fs-15 text_summary">
+                                        {{itm.summary|truncatechars:189|safe|linebreaks}}
+                                    </p>
+                                </div>
+                            </div>
+
+                            {% endfor %}
+
+                            <div class="pagination pagination__center">
+                                <span class="step-links">
+                                    {% if page_obj.has_previous %}
+                                    <a class="page-link pagination_a" href="?page=1">First</a>
+                                    <a class="page-link pagination_a"
+                                        href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                                    {% endif %}
+
+                                    <span class="current">
+                                        <li class="page-link pagination_a pagination_a_color">Page {{ page_obj.number }}
+                                            of {{page_obj.paginator.num_pages }}</li>
+                                    </span>
+
+                                    {% if page_obj.has_next %}
+                                    <a class="page-link pagination_a"
+                                        href="?page={{ page_obj.next_page_number }}">Next</a>
+                                    <a class="page-link pagination_a"
+                                        href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+                                    {% endif %}
+                                </span>
+                            </div>
+                        </div>
+
+                        {% include 'SnewStore/tinmoi.html' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

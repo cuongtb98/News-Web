@@ -1,0 +1,121 @@
+{% load static %}
+
+<header id="header">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="navbar-top">
+                <div class="d-flex justify-content-between align-items-center">
+                    <ul class="navbar-top-left-menu">
+                        <li class="nav-item">
+                            <a href="pages/index-inner.html" class="nav-link">Vnexpress</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/aboutus.html" class="nav-link">VTV24</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Báo Thanh Niên</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Báo Tuỏi Trẻ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Quản Tri Mạng</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-top-right-menu">
+                        <form class="form-inline my-2 my-lg-0" method="POST" action="{% url 'result_search_post' %}">
+                            {% csrf_token %}
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="searched">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm Kiếm</button>
+                        </form>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Sign in</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="navbar-bottom">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        {% comment %} <a class="navbar-brand" href="#"><img src="{% static 'assets/images/logo.svg' %}" /></a> {% endcomment %}
+                        <a class="navbar-brand navbar-brand_color" href="#">Snews</a>
+                    </div>
+                    <div>
+                        <button class="navbar-toggler" type="button" data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="navbar-collapse justify-content-center collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav d-lg-flex justify-content-between align-items-center">
+                                <li>
+                                    <button class="navbar-close">
+                                        <i class="mdi mdi-close"></i>
+                                    </button>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="{% url 'chinhtrixahoi' %}">Trang Chủ</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'chinhtrixahoi' %}">Chính Trị xã Hội</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'doisong' %}">Đời Sống</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'thethao' %}">Thể Thao</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'suckhoe' %}">Sức Khỏe</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'khoahoc' %}">Khoa Học</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'dulich' %}">Du Lịch</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <ul class="social-media">
+                        <li>
+                            <a href="#">
+                                <i class="mdi mdi-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="mdi mdi-youtube"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="mdi mdi-twitter"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<div class="flash-news-banner">
+    <div class="container">
+        <div class="d-lg-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center">
+                <span class="badge badge-dark mr-3">Flash news</span>
+                <p class="mb-0">
+                    cập nhập tin tức mới nhất, nóng nhất trong ngày
+                </p>
+            </div>
+            
+            <div class="d-flex">
+                <span class="mr-3 text-danger">THỜI TIẾT TP. HÀ NỘI{{data.nhietdo}}</span>
+                <span class="text-danger">{{data.time}}</span>
+            </div>
+        </div>
+    </div>
+</div>

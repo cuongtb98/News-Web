@@ -1,0 +1,79 @@
+{% load static %}
+<div class="col-lg-4">
+    <h2 class="mb-4 text-primary font-weight-600">
+        Tin mới
+    </h2>
+    {% for new in newposts %}
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="border-bottom pb-4 pt-4">
+                <div class="row">
+                    <div class="col-sm-8">
+                        
+                        <a href="{% url 'post_detail' new.id %}" class="font-weight-600 mb-2">
+                            {{new.title}}
+                        </a>
+                        
+                        <p class="fs-13 text-muted mb-0">
+                            <span class="mr-2">Photo </span>10 Minutes ago
+                        </p>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="rotate-img">
+                            <img src={% static 'assets/images/politics/Politics_1.jpg' %} alt="banner"
+                                class="img-fluid" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% endfor %}
+
+    <div class="trending">
+        <h2 class="mb-4 text-primary font-weight-600">
+            Tin Nổi Bật
+        </h2>
+        <div class="mb-4">
+            <div class="rotate-img">
+                <img src={% static 'assets/images/politics/Politics_4.jpg' %} alt="banner"
+                    class="img-fluid" />
+            </div>
+            <h3 class="mt-3 font-weight-600">
+                Virus Kills Member Of Advising Iran’s Supreme
+            </h3>
+            <p class="fs-13 text-muted mb-0">
+                <span class="mr-2">Photo </span>10 Minutes ago
+            </p>
+        </div>
+        <div class="mb-4">
+            <div class="rotate-img">
+                <img src={% static 'assets/images/politics/Politics_5.jpg' %} alt="banner"
+                    class="img-fluid" />
+            </div>
+            <h3 class="mt-3 font-weight-600">
+                Virus Kills Member Of Advising Iran’s Supreme
+            </h3>
+            <p class="fs-13 text-muted mb-0">
+                <span class="mr-2">Photo </span>10 Minutes ago
+            </p>
+        </div>
+        <div class="mb-4">
+            <div class="mb-4">
+                <div class="rotate-img">
+
+                    <img src={% static 'assets/images/politics/Politics_6.jpg' %} alt="banner"
+                        class="img-fluid" />
+                </div>
+                <h3 class="mt-3 font-weight-600">
+                    Virus Kills Member Of Advising Iran’s Supreme
+                </h3>
+                <p class="fs-13 text-muted mb-0">
+                    <span class="mr-2">Photo </span>10 Minutes ago
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
